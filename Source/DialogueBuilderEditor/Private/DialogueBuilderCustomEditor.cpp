@@ -338,7 +338,7 @@ void FDialogueBuilderCustomEditor::InvokeDialogueBuilderGraphTab()
 	}
 
 	//OpenDocument(DialogueBuilderBlueprint->EvenGraphRef, FDocumentTracker::OpenNewDocument);
-	//EventGraphRef = DialogueBuilderBlueprint->EvenGraphRef;
+	EventGraphRef = DialogueBuilderBlueprint->EvenGraphRef;
 
 	TSharedRef<FTabPayload_UObject> Payload = FTabPayload_UObject::Make(DialogueBuilderGraph);
 
@@ -668,9 +668,9 @@ void FDialogueBuilderCustomEditor::OnNodeDoubleClickedDB(class UEdGraphNode* Nod
 				locFunctionName = "OnDialoguePlay_NodeID" + FString::FromInt(StateNodeRef->DialogueNodeId);
 				FunctionName = locFunctionName;
 
-				FVector2D SpawnPos = DialogueBuilderGraph->GetGoodPlaceForNewNode();
+				FVector2D SpawnPos = EventGraphRef->GetGoodPlaceForNewNode();
 
-				UK2Node_CustomEvent* OnDialoguePlayEvent = UK2Node_CustomEvent::CreateFromFunction(SpawnPos, DialogueBuilderGraph, FunctionName, NewFunction, false);
+				UK2Node_CustomEvent* OnDialoguePlayEvent = UK2Node_CustomEvent::CreateFromFunction(SpawnPos, EventGraphRef, FunctionName, NewFunction, false);
 				OnDialoguePlayEvent->bCanRenameNode = false;
 				OnDialoguePlayEvent->bIsEditable = false;
 
@@ -681,6 +681,7 @@ void FDialogueBuilderCustomEditor::OnNodeDoubleClickedDB(class UEdGraphNode* Nod
 				if (OnDialoguePlayEvent)
 				{
 					JumpToNode(StateNodeRef->NodeForJump, false);
+					//GraphEditor->JumpToNode(StateNodeRef->NodeForJump);
 				}
 			}
 		}
@@ -691,6 +692,7 @@ void FDialogueBuilderCustomEditor::OnNodeDoubleClickedDB(class UEdGraphNode* Nod
 				if (Index!=-1)
 				{
 					JumpToNode(StateNodeRef->NodeForJump, false);
+					//GraphEditor->JumpToNode(StateNodeRef->NodeForJump);
 				}
 			}
 		}

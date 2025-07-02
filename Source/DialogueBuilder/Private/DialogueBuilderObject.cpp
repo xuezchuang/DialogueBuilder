@@ -34,15 +34,22 @@ FDialogueDetailsStruct UDialogueBuilderObject::StartDialogue()
 			UFunction* UpdateAnimation = FindFunction("UpdateAnimationForDialogue");
 			if (UpdateAnimation)
 			{
-				struct StructLoc2
-				{
-					FDialogueDetailsStruct DialogueNodeDetails;
-				};
+				//struct StructLoc2
+				//{
+				//	FDialogueDetailsStruct DialogueNodeDetails;
+				//};
 
-				StructLoc2 ResultStructureLoc2;
-				ResultStructureLoc2.DialogueNodeDetails = DialoguesData[IndexToReturn];
+				//StructLoc2 ResultStructureLoc2;
+				//ResultStructureLoc2.DialogueNodeDetails = DialoguesData[IndexToReturn];
 
-				ProcessEvent(UpdateAnimation, &ResultStructureLoc2);
+				//ProcessEvent(UpdateAnimation, &ResultStructureLoc2);
+
+				FDialogueDetailsStruct DialogueNodeDetails;
+
+				DialogueNodeDetails = DialoguesData[IndexToReturn];
+
+				ProcessEvent(UpdateAnimation, &DialogueNodeDetails);
+
 			}
 			
 			UFunction* CustFuncToCall = FindFunction(DialoguesData[IndexToReturn].OnDialoguePlayFuncName);
