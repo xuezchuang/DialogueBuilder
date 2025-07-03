@@ -149,6 +149,7 @@ TArray<FDialogueDetailsStruct> UDialogueBuilderObject::StartDialogueFromNodeID(i
 			ResultStructureLoc2.DialogueNodeDetails = ReturnArray[x];
 
 			ProcessEvent(UpdateAnimation, &ResultStructureLoc2);
+			//UpdateAnimationForDialogue(ResultStructureLoc2.DialogueNodeDetails);
 		}
 	}			
 

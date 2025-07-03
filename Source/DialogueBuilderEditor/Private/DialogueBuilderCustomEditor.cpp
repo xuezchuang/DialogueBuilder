@@ -655,8 +655,8 @@ void FDialogueBuilderCustomEditor::OnNodeDoubleClickedDB(class UEdGraphNode* Nod
 		UFunction* NewFunction;
 
 		//Search Node in Event Graph;
-		//int32 Index = EventGraphRef->Nodes.Find(StateNodeRef->NodeForJump);
-		int32 Index = DialogueBuilderGraph->Nodes.Find(StateNodeRef->NodeForJump);
+		int32 Index = EventGraphRef->Nodes.Find(StateNodeRef->NodeForJump);
+		//int32 Index = DialogueBuilderGraph->Nodes.Find(StateNodeRef->NodeForJump);
 		
 		if (Index == -1)
 		{
